@@ -55,5 +55,4 @@ def delete_user(user_id):
     return jsonify({'message': 'Usuário excluído com sucesso'}), 200
 
 if name == 'main':
-
     app.run(debug=True)
