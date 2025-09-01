@@ -1,4 +1,4 @@
-# GRUPO 9
+# Entrega da Atividade de Desenvolvimento de APIs - GRUPO 9
 
 # API de Gerenciamento de Usuários
 
