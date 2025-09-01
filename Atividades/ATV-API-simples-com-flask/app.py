@@ -41,7 +41,6 @@ def update_user(user_id):
     data = request.get_json()
     user['nome'] = data.get('nome', user['nome'])
     user['email'] = data.get('email', user['email'])
-
     return jsonify(user), 200
 
 @app.route('/users/<int:user_id>', methods=['DELETE'])
@@ -51,7 +50,6 @@ def delete_user(user_id):
     if not user:
         return jsonify({'error': 'Usuário não encontrado'}), 404
     users = [u for u in users if u['id'] != user_id]
-
     return jsonify({'message': 'Usuário excluído com sucesso'}), 200
 
 if __name__ == '__main__':
