@@ -1,6 +1,6 @@
 # Entrega da Atividade de Desenvolvimento de APIs - GRUPO 9
 
-# API de Gerenciamento de Usuários
+## API de Gerenciamento de Usuários
 
 Esta é uma API RESTful simples construída com o framework Flask em Python. Ela permite realizar as quatro operações básicas de CRUD (Create, Read, Update, Delete) para gerenciar um cadastro de usuários.
 
