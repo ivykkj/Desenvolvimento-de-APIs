@@ -12,7 +12,7 @@ class Task(db.Model):
     status = db.Column(db.String(50), nullable=False, default="Pendente")
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-    usuario = relationship("User", back_populates="tarefas")
+    user = relationship("User", back_populates="tasks")
     
     def __repr__(self):
         return f"<Task {self.title} - {self.status}>"

@@ -23,21 +23,24 @@ class TaskController:
             
             return redirect(url_for("list_tasks"))
         
-        users = User.query.all 
+        users = User.query.all() 
         return render_template("create_task.html", users=users)
     
     @staticmethod
     def update_task_status(task_id):
-        task_to_update = Task.query.get()
+        task_to_update = Task.query.get(task_id)
         if task_to_update:
-            task_to_update.status = 'Concluído'
+            if task_to_update.status == 'Pendente':
+                task_to_update.status = 'Concluído'
+            elif task_to_update.status == 'Concluído':
+                task_to_update.status = 'Pendente'
             db.session.commit()
         pass
         return redirect(url_for("list_tasks"))
 
     @staticmethod
     def delete_task(task_id):
-        task_to_delete = Task.query.get()
+        task_to_delete = Task.query.get(task_id)
         if task_to_delete:
             db.session.delete(task_to_delete)
             db.session.commit()
