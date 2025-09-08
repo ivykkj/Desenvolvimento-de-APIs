@@ -2,7 +2,6 @@ from flask import render_template, request, redirect, url_for
 from models.user import User
 from models import db
 
-
 class UserController:
     # A chamada para esse método seria feita diretamente pela classe, sem a necessidade de criar um objeto (uma instância):
     @staticmethod

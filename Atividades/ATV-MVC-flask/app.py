@@ -27,6 +27,5 @@ app.add_url_rule("/tasks/new", view_func=TaskController.create_task, methods=["G
 app.add_url_rule("/tasks/update/<int:task_id>", view_func=TaskController.update_task_status, methods=["POST"], endpoint="update_task_status")
 app.add_url_rule("/tasks/delete/<int:task_id>", view_func=TaskController.delete_task, methods=["POST"], endpoint="delete_task")
 
-
 if __name__ == '__main__':
     app.run(debug=True, port=5002)
