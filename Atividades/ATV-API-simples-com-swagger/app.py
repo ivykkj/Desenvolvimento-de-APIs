@@ -27,10 +27,10 @@ def create_user():
         - application/json
     parameters:
         - in: body
-        name: users
-        description: Objeto json com os dados do Usuário
-        required: True
-        schema:
+          name: users
+          description: Objeto json com os dados do Usuário
+          required: True
+          schema:
             id: UserInput
             type: object
             required:
@@ -109,10 +109,10 @@ def get_user(user_id):
     description: Busca um usuário na lista com base no ID
     parameters:
         - name: user_id
-        in: path
-        type: integer
-        required: true
-        description: O ID do usuário a ser buscado
+          in: path
+          type: integer
+          required: true
+          description: O ID do usuário a ser buscado
     responses:
         200:
             description: Dados do usuário retornados com sucesso
@@ -143,14 +143,14 @@ def update_user(user_id):
     description: Busca um usuário pelo ID e atualiza seus dados
     parameters:
         - name: user_id
-        in: path
-        type: integer
-        required: true
-        description: o ID do usuário a ser atualizado
+          in: path
+          type: integer
+          required: true
+          description: o ID do usuário a ser atualizado
         - name: body
-        in: body
-        required: true
-        schema:
+          in: body
+          required: true
+          schema:
             id: UserUpdateInput
             type: object
             properties:
@@ -192,10 +192,10 @@ def delete_user(user_id):
     description: Exclui um usuário com base no ID forncido
     parameters:
         - name: user_id
-        in: path
-        type: integer
-        required: true
-        description: o ID do usuário a ser excluído
+          in: path
+          type: integer
+          required: true
+          description: o ID do usuário a ser excluído
     responses:
         200:
             description: Usuário excluído com sucesso
