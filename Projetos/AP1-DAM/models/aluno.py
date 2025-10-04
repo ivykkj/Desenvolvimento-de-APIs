@@ -1,5 +1,5 @@
 from models import db
-from sqlalchemy import Column, Integer, String, ForeignKey, Float, Boolean
+from sqlalchemy import Column, Integer, String, ForeignKey, Float, Boolean, Date
 from sqlalchemy.orm import relationship
 
 class Aluno(db.Model):
@@ -16,3 +16,18 @@ class Aluno(db.Model):
     turma_id = db.Column(db.Integer, db.ForeignKey('turmas.id'), nullable=False)
 
     turma = relationship("Turma", back_populates="alunos")
+
+    def calcular_media(self):
+        self.media_final = (self.nota_1 + self.nota_2) / 2
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'nome': self.nome,
+            'idade': self.idade,
+            'data_nascimento': self.data_nascimento.isoformat(),
+            'nota_primeiro_semestre': self.nota_primeiro_semestre,
+            'nota_segundo_semestre': self.nota_segundo_semestre,
+            'media_final': self.media_final,
+            'turma_id': self.turma_id
+        }
