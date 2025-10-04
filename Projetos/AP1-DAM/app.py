@@ -1,30 +1,32 @@
-import os
 from flask import Flask
 from config import Config
 from flasgger import Swagger
-from controllers.aluno_controller import AlunoController
-from controllers.professor_controller import ProfessorController
-from controllers.turma_controller import TurmaController
+from controllers.aluno_controller import aluno_bp
+from controllers.professor_controller import professor_bp
+from controllers.turma_controller import turma_bp
 from models import db
-from models.aluno import Aluno
-from models.professor import Professor
-from models.turma import Turma
 
 app = Flask(__name__)
 swagger = Swagger(app, template={
     "info":{
-        "title": "Minha API Flask",
-        "description": "API completa em Flask, estruturada em MVC",
+        "title": "API de Gestão Escolar",
+        "description": "API em Flask para gerenciar Professores, Turmas e Alunos.",
         "version": "1.0.0",
-    }
+    },
+    "swagger": "2.0",
+    "basepath": "/api",
 })
 
 app.config.from_object(Config)
 
 db.init_app(app)
 
+app.register_blueprint(aluno_bp, url_prefix='/api')
+app.register_blueprint(professor_bp, url_prefix='/api')
+app.register_blueprint(turma_bp, url_prefix='/api')
+
 with app.app_context():
     db.create_all()
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(host='0.0.0.0', debug=True, port=8080)
