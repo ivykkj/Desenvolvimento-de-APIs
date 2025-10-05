@@ -9,7 +9,7 @@ class Aluno(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(100), nullable=False)
     idade = db.Column(db.Integer, nullable=False)
-    data_nasc = db.Column(db.Date, nullable=False)
+    data_nascimento = db.Column(db.Date, nullable=False)
     nota_1_semestre = db.Column(db.Float, nullable=False)
     nota_2_semestre = db.Column(db.Float, nullable=False)
     media_final = db.Column(db.Float, nullable=False)
@@ -18,16 +18,16 @@ class Aluno(db.Model):
     turma = relationship("Turma", back_populates="alunos")
 
     def calcular_media(self):
-        self.media_final = (self.nota_1 + self.nota_2) / 2
+        self.media_final = (self.nota_1_semestre + self.nota_2_semestre) / 2
 
     def to_dict(self):
         return {
             'id': self.id,
             'nome': self.nome,
             'idade': self.idade,
-            'data_nascimento': self.data_nascimento.isoformat(),
-            'nota_primeiro_semestre': self.nota_primeiro_semestre,
-            'nota_segundo_semestre': self.nota_segundo_semestre,
+            'data_nascimento': self.data_nascimento.strftime('%d/%m/%Y'),
+            'nota_1_semestre': self.nota_1_semestre,
+            'nota_2_semestre': self.nota_2_semestre,
             'media_final': self.media_final,
             'turma_id': self.turma_id
         }

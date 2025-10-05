@@ -7,15 +7,7 @@ from controllers.turma_controller import turma_bp
 from models import db
 
 app = Flask(__name__)
-swagger = Swagger(app, template={
-    "info":{
-        "title": "API de Gestão Escolar",
-        "description": "API em Flask para gerenciar Professores, Turmas e Alunos.",
-        "version": "1.0.0",
-    },
-    "swagger": "2.0",
-    "basepath": "/api",
-})
+swagger = Swagger(app, template_file='swagger.yml')
 
 app.config.from_object(Config)
 
