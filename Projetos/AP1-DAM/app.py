@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from config import Config
 from flasgger import Swagger
 from controllers.aluno_controller import aluno_bp
@@ -7,6 +8,7 @@ from controllers.turma_controller import turma_bp
 from models import db
 
 app = Flask(__name__)
+CORS(app)
 swagger = Swagger(app, template_file='swagger.yml')
 
 app.config.from_object(Config)

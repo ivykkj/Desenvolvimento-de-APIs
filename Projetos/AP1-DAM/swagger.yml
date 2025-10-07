@@ -3,6 +3,7 @@ info:
   title: Escola API
   description: API para gerenciamento de Professores, Turmas e Alunos.
   version: "1.0.1"
+basePath: /api 
 
 tags:
   - name: Alunos
@@ -61,12 +62,12 @@ definitions:
       data_nascimento:
         type: string
         format: date
-        example: "25-02-2006"
-      nota_primeiro_semestre:
+        example: "25/02/2006"
+      nota_1_semestre:
         type: number
         format: float
         example: 8.5
-      nota_segundo_semestre:
+      nota_2_semestre:
         type: number
         format: float
         example: 9.0
@@ -120,12 +121,12 @@ definitions:
       data_nascimento:
         type: string
         format: date
-        example: "25-02-2006"
-      nota_primeiro_semestre:
+        example: "25/02/2006"
+      nota_1_semestre:
         type: number
         format: float
         example: 8.5
-      nota_segundo_semestre:
+      nota_2_semestre:
         type: number
         format: float
         example: 9.0
